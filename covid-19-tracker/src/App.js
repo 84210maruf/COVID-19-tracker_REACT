@@ -1,23 +1,32 @@
 import {
   FormControl, MenuItem, Select
 } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 
+
 function App() {
+  const [countries, setCountries] = useState([
+    'USA','UK','INDIA','BANGLADESH'
+  ]);
+  
   return (
     <div className="app">
-      <h1>COVID 19 TRACKER</h1>
 
-      <FormControl className="app_dropdown">
-        <Select variant="outlined" value="abc">
-          <MenuItem value="worldwide">Worldwide</MenuItem>
-          <MenuItem value="worldwide">Worldwide</MenuItem>
-          <MenuItem value="worldwide">Worldwide</MenuItem>
-          <MenuItem value="worldwide">Worldwide</MenuItem>
-        </Select>
-      </FormControl>
+      <div className="app__header">
+        <h1>COVID 19 TRACKER</h1>
+        <FormControl className="app__dropdown">
+          <Select variant="outlined" value="abc">
+            {countries.map((country) => (
+
+              <MenuItem value="{country}">{country}</MenuItem>
+
+            ))}
+            
+          </Select>
+        </FormControl>
+      </div>
       
       {/* Header */}
       {/* Title + Select input */}
