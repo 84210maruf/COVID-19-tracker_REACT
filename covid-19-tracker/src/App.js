@@ -19,9 +19,7 @@ function App() {
         <FormControl className="app__dropdown">
           <Select variant="outlined" value="abc">
             {countries.map((country) => (
-
               <MenuItem value="{country}">{country}</MenuItem>
-
             ))}
             
           </Select>
