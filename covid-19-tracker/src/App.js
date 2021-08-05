@@ -7,9 +7,15 @@ import './App.css';
 
 
 function App() {
-  const [countries, setCountries] = useState([
-    'USA','UK','INDIA','BANGLADESH'
-  ]);
+
+  
+  const [countries, setCountries] = useState(['usa','bd','india']);
+  //COVID API
+  //https://disease.sh/v3/covid-19/countries
+  // useEffect = run a pice of code
+  //based on given condition
+  
+
   
   return (
     <div className="app">
