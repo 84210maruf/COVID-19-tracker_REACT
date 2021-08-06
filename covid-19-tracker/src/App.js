@@ -3,6 +3,8 @@ import {
 } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import InfoBox from './InfoBox';
+{/*InfoBox From metrial UI*/}
 
 
 
@@ -44,12 +46,15 @@ function App() {
     const onCountryChange = async (event) => {
       const countryCode = event.target.value;
       console.log("YOOOO >>>>", countryCode);
+      setCountry(countryCode);
     }
 
   
   return (
     <div className="app">
 
+      {/* Header */}
+      {/* Title + Select input */}
       <div className="app__header">
         <h1>COVID 19 TRACKER</h1>
         <FormControl className="app__dropdown">
@@ -62,13 +67,14 @@ function App() {
           </Select>
         </FormControl>
       </div>
-      
-      {/* Header */}
-      {/* Title + Select input */}
 
-      {/* InfoBoxs */}
-      {/* InfoBoxs */}
-      {/* InfoBoxs */}
+      {/* InfoBoxes */}
+      <div className="app__status">
+        <InfoBox title="Coronavirus Cases" cases={123} total={2000} />
+        <InfoBox title="Recovered"  cases={123} total={2000} />
+        <InfoBox title="Deaths"  cases={123} total={2000} />
+      </div>
+
 
       {/* Table */}
       {/* Graph */}

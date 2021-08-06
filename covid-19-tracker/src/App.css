@@ -3,9 +3,18 @@
   padding: 02px;
 }
 
+body {
+  background-color: rgb(216, 211, 211);
+}
+
 .app__header {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.app__status {
+  display: flex;
   justify-content: space-between;
 }
