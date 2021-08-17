@@ -27,6 +27,9 @@ body {
 }
 .app__right {
 }
+.info_title {
+  color: red;
+}
 
 .app__status {
   display: flex;

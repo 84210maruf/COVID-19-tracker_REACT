@@ -3,9 +3,10 @@ import {
   CardContent,
   FormControl,
   MenuItem,
-  Select,
+  Select
 } from "@material-ui/core";
 import axios from "axios";
+import 'leaflet/dist/leaflet.css';
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import InfoBox from "./InfoBox";
@@ -23,6 +24,10 @@ function App() {
   const [countrySlug, setCountrySlug] = useState("bangladesh");
   const [coronaCountArr, setCoronaCountArr] = useState({});
   const [coronaDateArr, setCoronaDateArr] = useState({});
+
+  const [mapCenter, setMapCenter] = useState({lat:34.8074, lng: -40.4796});
+  const [mapZoom, setMapZoom] = useState(3);
+  const [mapCountries, setMapCountries] = useState([]);
 
   const getCountryReportByDateRang = (CountrySlug, from, to) => {
     console.log(countrySlug);
@@ -72,6 +77,7 @@ function App() {
           const sortedData = sortData(data);
           setTableData(sortedData);
           setCountries(countries);
+          setMapCountries(data);
         });
     };
     getCountriesData();
@@ -92,6 +98,12 @@ function App() {
         setCountry(countryCode);
 
         setCountryInfo(data);
+        if(countryCode==='worldwide') {
+          setMapCenter([100, 200]);
+        }else {
+          setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+        }
+        setMapZoom(4);
 
         // pREPAETRING gRAPH DATA
         const d = new Date();
@@ -141,7 +153,7 @@ function App() {
           />
         </div>
 
-        <Map />
+        <Map countries={mapCountries} center={mapCenter} zoom={mapZoom}/>
       </div>
 
       <Card className="app__right">
