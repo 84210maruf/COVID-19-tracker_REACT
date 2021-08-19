@@ -25,9 +25,11 @@ function App() {
   const [coronaCountArr, setCoronaCountArr] = useState({});
   const [coronaDateArr, setCoronaDateArr] = useState({});
 
-  const [mapCenter, setMapCenter] = useState({lat:34.8074, lng: -40.4796});
-  const [mapZoom, setMapZoom] = useState(3);
+  const [mapCenter, setMapCenter] = useState({lat:23.6850, lng: 90.3563});
+  const [mapZoom, setMapZoom] = useState(2);
   const [mapCountries, setMapCountries] = useState([]);
+
+  console.log(country);
 
   const getCountryReportByDateRang = (CountrySlug, from, to) => {
     console.log(countrySlug);
@@ -98,11 +100,13 @@ function App() {
         setCountry(countryCode);
 
         setCountryInfo(data);
-        if(countryCode==='worldwide') {
-          setMapCenter([100, 200]);
-        }else {
-          setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-        }
+        
+          if(country=='worldwide') {
+            setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+          }else {
+            setMapCenter([23, 90]);
+          }
+        
         setMapZoom(4);
 
         // pREPAETRING gRAPH DATA
