@@ -16,6 +16,7 @@ import Tables from "./Tables";
 import { sortData } from "./util";
 
 function App() {
+  //test
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("worldwide");
   const [countryInfo, setCountryInfo] = useState({});
